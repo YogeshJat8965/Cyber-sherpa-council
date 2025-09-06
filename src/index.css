@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Prevent horizontal scrolling globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure all elements respect container boundaries */
+* {
+  box-sizing: border-box;
+}
+
+/* Custom smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent AOS animations from causing horizontal overflow */
+[data-aos] {
+  overflow: hidden;
+}
+
+/* Custom fade animations that don't cause horizontal scroll */
+@keyframes fadeInSafe {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-safe {
+  animation: fadeInSafe 1s ease-out;
+}

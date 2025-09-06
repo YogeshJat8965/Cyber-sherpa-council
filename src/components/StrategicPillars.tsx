@@ -60,10 +60,10 @@ const StrategicPillars: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 mb-6" data-aos="fade-down" data-aos-duration="1400" data-aos-easing="ease-out-back">
             Strategic Pillars
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200">
             Six foundational pillars that guide our approach to cybersecurity leadership development
           </p>
         </div>
@@ -77,6 +77,10 @@ const StrategicPillars: React.FC = () => {
               <div
                 key={index}
                 className={`bg-white/5 backdrop-blur-lg rounded-xl p-8 border ${colorClass} transition-all duration-300 group hover:transform hover:scale-105`}
+                data-aos="fade-up"
+                data-aos-delay={600 + index * 150}
+                data-aos-duration="1300"
+                data-aos-easing="ease-out-back"
               >
                 <div className="text-center mb-6">
                   <IconComponent className={`w-16 h-16 mx-auto mb-4 ${colorClass.split(' ')[2]} group-hover:scale-110 transition-transform duration-300`} />
@@ -91,7 +95,7 @@ const StrategicPillars: React.FC = () => {
         </div>
 
         {/* Framework Overview */}
-        <div className="mt-16">
+        <div className="mt-16" data-aos="fade-up" data-aos-delay="1000">
           <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl p-8 border border-gray-600/30">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">Integrated Framework</h3>
             <p className="text-gray-300 text-center leading-relaxed max-w-4xl mx-auto">
