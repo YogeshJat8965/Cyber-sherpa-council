@@ -13,9 +13,9 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Custom smooth scrolling for the whole page */
+/* Remove automatic smooth scrolling to prevent conflicts */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Prevent AOS animations from causing horizontal overflow */

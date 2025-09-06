@@ -32,15 +32,36 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    console.log('Scrolling to section:', sectionId);
+    
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80;
-      const elementPosition = element.offsetTop - offset;
+      console.log('Element found, scrolling...');
+      
+      // Get the element's position
+      const elementRect = element.getBoundingClientRect();
+      const elementTop = elementRect.top + window.pageYOffset;
+      const offset = 100; // Account for fixed header
+      
+      // Scroll to the element
       window.scrollTo({
-        top: elementPosition,
+        top: elementTop - offset,
         behavior: 'smooth'
       });
+      
+      // Fallback for browsers that don't support smooth scrolling
+      if (window.scrollY === elementTop - offset) {
+        console.log('Smooth scroll not supported, using fallback');
+        window.scrollTo(0, elementTop - offset);
+      }
+      
+    } else {
+      console.error('Element not found with ID:', sectionId);
+      // Show all available IDs for debugging
+      const allIds = Array.from(document.querySelectorAll('[id]')).map(el => el.id);
+      console.log('Available IDs:', allIds);
     }
+    
     setIsOpen(false);
   };
 

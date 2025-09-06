@@ -5,8 +5,8 @@ const WhyJoin: React.FC = () => {
   const benefits = [
     {
       icon: Network,
-      title: 'Elite Network Access',
-      description: 'Connect with Fortune 500 CISOs, government leaders, and innovative security pioneers.',
+      title: 'Executive Networking',
+      description: 'Connect with global security leaders to exchange best practices and strategic insight.',
       stats: '500+ Members'
     },
     {
@@ -17,27 +17,27 @@ const WhyJoin: React.FC = () => {
     },
     {
       icon: Shield,
-      title: 'Strategic Frameworks',
-      description: 'Access proprietary methodologies and frameworks developed by industry leaders.',
-      stats: '25+ Frameworks'
+      title: 'Inspirational Events',
+      description: 'Participate in curated events at world-class venues that foster trust and transformation.',
+      stats: '25+ Successful Events'
     },
     {
       icon: Lightbulb,
-      title: 'Innovation Pipeline',
-      description: 'Early access to emerging technologies and strategic partnerships with leading vendors.',
+      title: 'Cross-Sector Collaboration',
+      description: 'Collaborate across sectors including finance, healthcare, government, telecom, energy, retail etc.',
       stats: '50+ Partners'
     },
     {
       icon: Users,
-      title: 'Peer Mentorship',
-      description: '1:1 mentoring with experienced CISOs and access to executive coaching programs.',
-      stats: '24/7 Support'
+      title: 'Actionable Intelligence',
+      description: 'Access exclusive reports, thought leadership, and threat intelligence.',
+      stats: '100+ Reports'
     },
     {
       icon: Globe2,
-      title: 'Global Influence',
-      description: 'Shape industry standards and influence cybersecurity policy at national levels.',
-      stats: '15 Countries'
+      title: 'Recognition & Influence',
+      description: 'Be acknowledged through industry awards and advisory opportunities.',
+      stats: '10+ Awards'
     }
   ];
 

@@ -14,25 +14,25 @@ const FAQ: React.FC = () => {
 
   const faqs = [
     {
-      question: "What are the eligibility requirements for joining the Cyber Sherpa Council?",
-      answer: "Candidates should have 5+ years of cybersecurity leadership experience, currently hold or aspire to hold a CISO or equivalent C-level security position, and demonstrate a commitment to strategic cybersecurity leadership. We also consider exceptional emerging leaders with strong potential."
+      question: "Who is eligible to join the Cyber Sherpa Council?",
+      answer: "The Cyber Sherpa Council is open to Chief Information Security Officers, cybersecurity executives, and senior professionals responsible for safeguarding digital assets within their organizations. Members typically come from diverse industries and regions, united by a shared commitment to advancing cybersecurity leadership and resilience."
     },
     {
-      question: "How long are the program tracks and what is the time commitment?",
-      answer: "Program tracks range from 6-12 months depending on the level. Foundation Track (6 months), Executive Track (12 months), and Innovation Track (9 months). Time commitment is approximately 8-10 hours per month, including virtual sessions, peer mentoring, and strategic project work."
+      question: "What is the cost of membership?",
+      answer: "Membership fees vary based on the type of participation and access level. Details regarding pricing and benefits will be shared during the application process. Some programs and events are included in membership, while others are available at preferential rates for members."
     },
     {
-      question: "What is the application and selection process?",
-      answer: "The process includes an initial application, leadership assessment, peer interviews, and final review by our advisory board. We maintain high standards and typically accept 30-40% of qualified applicants to ensure program quality and peer-to-peer learning effectiveness."
+      question: "Is organizational membership required to join?",
+      answer: "No, organizational affiliation is not mandatory. Individuals can apply independently. However, applicants should have demonstrable experience in cybersecurity leadership or related executive roles."
     },
-    {
-      question: "What are the program costs and are there scholarship options?",
-      answer: "Program fees range from $15,000-$35,000 depending on the track. We offer need-based scholarships, corporate sponsorships, and flexible payment options. Many organizations sponsor their executives' participation as a strategic investment in leadership development."
-    },
-    {
-      question: "How does the peer mentorship and networking component work?",
-      answer: "Each member is matched with a senior CISO mentor and joins a cohort of 8-12 peers. We facilitate monthly virtual roundtables, quarterly in-person gatherings, and an annual leadership summit. Our private member platform enables 24/7 collaboration and knowledge sharing."
-    },
+    // {
+    //   question: "What are the program costs and are there scholarship options?",
+    //   answer: "Program fees range from $15,000-$35,000 depending on the track. We offer need-based scholarships, corporate sponsorships, and flexible payment options. Many organizations sponsor their executives' participation as a strategic investment in leadership development."
+    // },
+    // {
+    //   question: "How does the peer mentorship and networking component work?",
+    //   answer: "Each member is matched with a senior CISO mentor and joins a cohort of 8-12 peers. We facilitate monthly virtual roundtables, quarterly in-person gatherings, and an annual leadership summit. Our private member platform enables 24/7 collaboration and knowledge sharing."
+    // },
     {
       question: "What kind of career advancement can I expect after completing the program?",
       answer: "Our members typically see significant career advancement within 18 months of completion. This includes promotions to CISO roles, board advisory positions, and average salary increases of 40%. Our executive placement network and industry connections accelerate these opportunities."
@@ -41,10 +41,10 @@ const FAQ: React.FC = () => {
       question: "How does the program stay current with emerging cybersecurity threats and technologies?",
       answer: "Our curriculum is continuously updated through partnerships with leading cybersecurity vendors, government agencies, and research institutions. Members receive early access to threat intelligence, emerging technology briefings, and participate in strategic research projects."
     },
-    {
-      question: "What ongoing support is available after program completion?",
-      answer: "Graduates become lifetime members of our alumni network, with continued access to exclusive events, research reports, and peer connections. We also offer advanced masterclasses, board readiness programs, and executive coaching services."
-    },
+    // {
+    //   question: "What ongoing support is available after program completion?",
+    //   answer: "Graduates become lifetime members of our alumni network, with continued access to exclusive events, research reports, and peer connections. We also offer advanced masterclasses, board readiness programs, and executive coaching services."
+    // },
     {
       question: "How is the program different from traditional cybersecurity certifications?",
       answer: "While technical certifications focus on skills and knowledge, our program develops strategic leadership capabilities. We emphasize business alignment, executive communication, risk management, and organizational transformation - capabilities essential for C-level cybersecurity leaders."

@@ -51,9 +51,9 @@ const ProgramTracks: React.FC = () => {
   ];
 
   const certifications = [
-    { icon: BookOpen, title: 'Cyber Sherpa Certified', description: 'Foundation certification' },
-    { icon: Award, title: 'Strategic Leader', description: 'Executive certification' },
-    { icon: Users2, title: 'Innovation Pioneer', description: 'Specialized certification' }
+    { icon: BookOpen, title: 'Cyber Sherpa Certified', description: '6-month cohort' },
+    { icon: Award, title: 'Strategic Leader', description: 'Blockchain credentialing' },
+    { icon: Users2, title: 'Innovation Pioneer', description: 'Portfolio-based evaluation' }
   ];
 
   return (

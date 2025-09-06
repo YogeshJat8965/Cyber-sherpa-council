@@ -13,7 +13,12 @@ const ApplicationForm: React.FC = () => {
     track: '',
     motivation: '',
     goals: '',
-    references: ''
+    references: '',
+    responsibilities: [] as string[],
+    roleDescription: '',
+    interestedPrograms: [] as string[],
+    speakingOpportunity: '',
+    consentAgreed: false
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -35,6 +40,43 @@ const ApplicationForm: React.FC = () => {
     }
   };
 
+  const handleCheckboxChange = (name: string, value: string) => {
+    setFormData(prev => {
+      const currentValue = prev[name as keyof typeof prev];
+      if (Array.isArray(currentValue)) {
+        return {
+          ...prev,
+          [name]: currentValue.includes(value)
+            ? currentValue.filter((item: string) => item !== value)
+            : [...currentValue, value]
+        };
+      }
+      return prev;
+    });
+  };
+
+  const handleConsentChange = () => {
+    setFormData(prev => ({
+      ...prev,
+      consentAgreed: !prev.consentAgreed
+    }));
+    
+    // Clear consent error when user checks the box
+    if (errors.consentAgreed) {
+      setErrors(prev => ({
+        ...prev,
+        consentAgreed: ''
+      }));
+    }
+  };
+
+  const handleRadioChange = (name: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
@@ -52,6 +94,7 @@ const ApplicationForm: React.FC = () => {
     if (!formData.track) newErrors.track = 'Program track is required';
     if (!formData.motivation.trim()) newErrors.motivation = 'Motivation is required';
     if (!formData.goals.trim()) newErrors.goals = 'Goals are required';
+    if (!formData.consentAgreed) newErrors.consentAgreed = 'You must agree to the terms to submit your application';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -83,7 +126,12 @@ const ApplicationForm: React.FC = () => {
         track: '',
         motivation: '',
         goals: '',
-        references: ''
+        references: '',
+        responsibilities: [],
+        roleDescription: '',
+        interestedPrograms: [],
+        speakingOpportunity: '',
+        consentAgreed: false
       });
     } catch (error) {
       alert('There was an error submitting your application. Please try again.');
@@ -300,7 +348,7 @@ const ApplicationForm: React.FC = () => {
           </div>
 
           {/* Program Selection */}
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <GraduationCap className="w-6 h-6 text-yellow-400 mr-3" />
               Program Selection
@@ -329,7 +377,7 @@ const ApplicationForm: React.FC = () => {
                 <p className="mt-1 text-sm text-red-400">{errors.track}</p>
               )}
             </div>
-          </div>
+          </div> */}
 
           {/* Essay Questions */}
           <div className="mb-8">
@@ -338,48 +386,112 @@ const ApplicationForm: React.FC = () => {
               Essay Questions
             </h3>
             <div className="space-y-6">
+              {/* Current Areas of Responsibility */}
               <div>
-                <label htmlFor="motivation" className="block text-sm font-medium text-gray-300 mb-2">
-                  Why do you want to join the Cyber Sherpa Council? (500 words max) *
+                <label className="block text-sm font-medium text-gray-300 mb-3">
+                  Current Areas of Responsibility
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {[
+                    'Cyber Risk Management',
+                    'Incident Response',
+                    'Data Protection & Privacy',
+                    'Governance & Compliance',
+                    'Identity & Access Management',
+                    'Threat Intelligence',
+                    'Cloud Security',
+                    'AI Security',
+                    'Executive/Board Engagement',
+                    'Other'
+                  ].map((responsibility) => (
+                    <label key={responsibility} className="flex items-center space-x-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={formData.responsibilities.includes(responsibility)}
+                        onChange={() => handleCheckboxChange('responsibilities', responsibility)}
+                        className="w-4 h-4 text-cyan-500 bg-gray-800 border-gray-600 rounded focus:ring-cyan-500 focus:ring-2"
+                      />
+                      <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
+                        {responsibility}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Brief Description of Role */}
+              <div>
+                <label htmlFor="roleDescription" className="block text-sm font-medium text-gray-300 mb-2">
+                  Brief Description of Your Role and Team Structure
                 </label>
                 <textarea
-                  id="motivation"
-                  name="motivation"
-                  value={formData.motivation}
+                  id="roleDescription"
+                  name="roleDescription"
+                  value={formData.roleDescription}
                   onChange={handleChange}
                   rows={4}
-                  className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-200 resize-vertical ${
-                    errors.motivation 
-                      ? 'border-red-500 focus:ring-red-400/50' 
-                      : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/50'
-                  }`}
-                  placeholder="Describe your motivation for joining our cybersecurity leadership community..."
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-cyan-400 focus:ring-cyan-400/50 transition-all duration-200 resize-vertical"
+                  placeholder="Describe your current role, team size, reporting structure, and key responsibilities..."
                 />
-                {errors.motivation && (
-                  <p className="mt-1 text-sm text-red-400">{errors.motivation}</p>
-                )}
               </div>
+
+              {/* Programs Interest */}
               <div>
-                <label htmlFor="goals" className="block text-sm font-medium text-gray-300 mb-2">
-                  What are your career goals and how will this program help you achieve them? (500 words max) *
+                <label className="block text-sm font-medium text-gray-300 mb-3">
+                  Which programs are you most interested in?
                 </label>
-                <textarea
-                  id="goals"
-                  name="goals"
-                  value={formData.goals}
-                  onChange={handleChange}
-                  rows={4}
-                  className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-200 resize-vertical ${
-                    errors.goals 
-                      ? 'border-red-500 focus:ring-red-400/50' 
-                      : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/50'
-                  }`}
-                  placeholder="Share your career aspirations and how our program aligns with your goals..."
-                />
-                {errors.goals && (
-                  <p className="mt-1 text-sm text-red-400">{errors.goals}</p>
-                )}
+                <div className="space-y-3">
+                  {[
+                    'Peer Networking & Roundtables',
+                    'CISO Uplift (Leadership Development)',
+                    'Cyber Accelerate (AI, Zero Trust, Resilience)',
+                    'Industry Insights & Publications',
+                    'Recognition & Awards Programs',
+                    'Global Summits & Events'
+                  ].map((program) => (
+                    <label key={program} className="flex items-center space-x-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={formData.interestedPrograms.includes(program)}
+                        onChange={() => handleCheckboxChange('interestedPrograms', program)}
+                        className="w-4 h-4 text-cyan-500 bg-gray-800 border-gray-600 rounded focus:ring-cyan-500 focus:ring-2"
+                      />
+                      <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
+                        {program}
+                      </span>
+                    </label>
+                  ))}
+                </div>
               </div>
+
+              {/* Speaking Opportunities */}
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-3">
+                  Would you like to be considered for speaking, mentoring, or advisory opportunities?
+                </label>
+                <div className="space-y-2">
+                  {[
+                    { value: 'yes', label: 'Yes' },
+                    { value: 'no', label: 'No' },
+                    { value: 'maybe', label: 'Maybe Later' }
+                  ].map((option) => (
+                    <label key={option.value} className="flex items-center space-x-3 cursor-pointer group">
+                      <input
+                        type="radio"
+                        name="speakingOpportunity"
+                        value={option.value}
+                        checked={formData.speakingOpportunity === option.value}
+                        onChange={() => handleRadioChange('speakingOpportunity', option.value)}
+                        className="w-4 h-4 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-500 focus:ring-2"
+                      />
+                      <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
+                        {option.label}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
               <div>
                 <label htmlFor="references" className="block text-sm font-medium text-gray-300 mb-2">
                   Professional References (Name, Title, Company, Email - Optional)
@@ -397,12 +509,42 @@ const ApplicationForm: React.FC = () => {
             </div>
           </div>
 
+          {/* Consent & Submission */}
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold text-white mb-6">
+              Consent & Submission
+            </h3>
+            <div className="bg-gray-800/30 border border-gray-600 rounded-lg p-6">
+              <label className="flex items-start space-x-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={formData.consentAgreed}
+                  onChange={handleConsentChange}
+                  className="w-5 h-5 mt-1 text-cyan-500 bg-gray-800 border-gray-600 rounded focus:ring-cyan-500 focus:ring-2"
+                />
+                <span className="text-gray-300 group-hover:text-white transition-colors duration-200 leading-relaxed">
+                  I confirm that the information provided is accurate and agree to be contacted regarding my application.
+                </span>
+              </label>
+              {errors.consentAgreed && (
+                <p className="mt-3 text-sm text-red-400 flex items-center">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
+                  {errors.consentAgreed}
+                </p>
+              )}
+            </div>
+          </div>
+
           {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 disabled:from-gray-600 disabled:to-gray-700 disabled:cursor-not-allowed text-white font-semibold px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 flex items-center space-x-3 mx-auto"
+              disabled={isSubmitting || !formData.consentAgreed}
+              className={`bg-gradient-to-r transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-white font-semibold px-12 py-4 rounded-lg flex items-center space-x-3 mx-auto ${
+                formData.consentAgreed && !isSubmitting
+                  ? 'from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 hover:shadow-cyan-500/25'
+                  : 'from-gray-600 to-gray-700 cursor-not-allowed'
+              }`}
             >
               <Send className="w-5 h-5" />
               <span>

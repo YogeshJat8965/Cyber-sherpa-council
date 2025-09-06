@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
             Cyber Sherpa Council
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
-            Elevating CISOs through Strategic Leadership & Innovation
+            Command   Collaborate   Secure the Future
           </p>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
             Join an exclusive community of cybersecurity leaders shaping the future of digital defense
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
             onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
           >
-            Apply Now
+            Become a Member
           </button>
           <button
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}

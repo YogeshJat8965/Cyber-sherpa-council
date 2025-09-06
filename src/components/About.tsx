@@ -23,7 +23,8 @@ const About: React.FC = () => {
             About Cyber Sherpa Council
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
-            An exclusive community of cybersecurity executives dedicated to advancing the art and science of information security leadership
+Elite Tracks Empowering Cybersecurity Leadership in the AI-First Era
+The Cyber Sherpa Council is a strategic leadership consortium uniting cybersecurity executives across industries and geographies. In an age of unprecedented disruption and innovation, we offer a carefully curated suite of programs designed to prepare today’s cybersecurity leaders for tomorrow’s autonomous, AI-powered threat landscape.
           </p>
         </div>
 

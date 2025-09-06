@@ -28,7 +28,7 @@ const Mission: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              To empower cybersecurity leaders with the strategic insights, collaborative networks, and innovative tools necessary to protect and advance their organizations in an increasingly complex digital landscape.
+                To cultivate a global network of cybersecurity leaders co-creating the future of secure digital transformation through intelligence sharing, strategic foresight, and innovation leadership.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ const Mission: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              A world where cybersecurity leaders are recognized as essential business strategists, driving organizational resilience and enabling secure digital transformation at global scale.
+              To redefine the role of CISOs as not only guardians of security, but as enterprise enablers and architects of trust embedded in business decisions, digital strategy, and boardroom influence.
             </p>
           </div>
 

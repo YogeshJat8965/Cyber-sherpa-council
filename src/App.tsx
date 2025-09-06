@@ -39,6 +39,14 @@ function App() {
       disableMutationObserver: false, // Keep mutation observer enabled
     });
 
+    // Debug: Check if all sections exist
+    const requiredSections = ['hero', 'about', 'mission', 'pillars', 'tracks', 'why-join', 'leadership', 'awards', 'faq', 'application'];
+    console.log('Checking for required sections...');
+    requiredSections.forEach(sectionId => {
+      const element = document.getElementById(sectionId);
+      console.log(`Section ${sectionId}:`, element ? 'Found' : 'Missing');
+    });
+
     // Refresh AOS on route changes or dynamic content
     return () => {
       AOS.refresh();
