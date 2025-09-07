@@ -21,11 +21,11 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 sm:pt-16 md:pt-0">
         {/* Main Content */}
         <div className="mb-8">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 animate-fade-in" data-aos="zoom-in-up" data-aos-duration="1800" data-aos-easing="ease-out-back">
-            Cyber Sherpa Council
-          </h1>
+          {/* <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 animate-fade-in" data-aos="zoom-in-up" data-aos-duration="1800" data-aos-easing="ease-out-back">
+            Cyber Sherpa Coun
+          </h1> */}
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
-            Command   Collaborate   Secure the Future
+            Command...Collaborate...Secure the Future.....
           </p>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
             Join an exclusive community of cybersecurity leaders shaping the future of digital defense

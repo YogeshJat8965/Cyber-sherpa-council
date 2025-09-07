@@ -2,12 +2,12 @@ import React from 'react';
 import { Globe, TrendingUp, Award, Target } from 'lucide-react';
 
 const About: React.FC = () => {
-  const stats = [
-    { icon: Globe, value: '500+', label: 'Global Members' },
-    { icon: TrendingUp, value: '95%', label: 'Success Rate' },
-    { icon: Award, value: '50+', label: 'Industry Awards' },
-    { icon: Target, value: '10+', label: 'Years Excellence' },
-  ];
+  // const stats = [
+  //   { icon: Globe, value: '500+', label: 'Global Members' },
+  //   { icon: TrendingUp, value: '95%', label: 'Success Rate' },
+  //   { icon: Award, value: '50+', label: 'Industry Awards' },
+  //   { icon: Target, value: '10+', label: 'Years Excellence' },
+  // ];
 
   return (
     <section id="about" className="py-20 bg-gray-900 relative overflow-hidden">
@@ -52,25 +52,27 @@ The Cyber Sherpa Council is a strategic leadership consortium uniting cybersecur
             </div>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-xl p-6 border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300 group text-center"
-                  data-aos="zoom-in-up"
-                  data-aos-delay={1000 + index * 150}
-                  data-aos-duration="1200"
-                  data-aos-easing="ease-out-back"
-                >
-                  <IconComponent className="w-12 h-12 text-cyan-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-gray-300 text-sm font-medium">{stat.label}</div>
-                </div>
-              );
-            })}
+          {/* Right side - Image */}
+          <div className="flex justify-center lg:justify-end">
+            <img 
+              src="/images/cisouse.webp" 
+              alt="Cyber Sherpa Council Leadership" 
+              className="w-full max-w-md h-auto"
+              data-aos="fade-left"
+              data-aos-delay="1000"
+              data-aos-duration="1200"
+              data-aos-easing="ease-out-back"
+              onError={(e) => {
+                // Fallback styling if image fails to load
+                e.currentTarget.style.display = 'none';
+                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'flex';
+              }}
+            />
+            {/* Fallback content if image fails to load */}
+            <div className="hidden w-full max-w-md h-64 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-2xl border border-cyan-500/30 items-center justify-center">
+              <p className="text-cyan-400 text-lg font-semibold">CISO Leadership</p>
+            </div>
           </div>
         </div>
 

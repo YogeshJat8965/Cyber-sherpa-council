@@ -10,7 +10,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navigationItems = [
-    { id: 'hero', label: 'Home' },
+    // { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'mission', label: 'Mission' },
     { id: 'pillars', label: 'Pillars' },
@@ -75,12 +75,22 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div 
-            className="flex items-center space-x-2 cursor-pointer"
+            className="flex items-center space-x-3 cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <Shield className="w-8 h-8 text-cyan-400" />
+            <img 
+              src="/images/image.png" 
+              alt="Cyber Sherpa Council Logo" 
+              className="w-10 h-10 object-contain"
+              onError={(e) => {
+                // Fallback to Shield icon if image fails to load
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            <Shield className="w-8 h-8 text-cyan-400 hidden" />
             <span className="text-xl font-bold text-white">
-              Cyber Sherpa Council
+              Cyber Sherpa Community
             </span>
           </div>
 
