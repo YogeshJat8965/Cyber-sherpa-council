@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 sm:pt-16 md:pt-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Main Content */}
         <div className="mb-8">
           {/* <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 animate-fade-in" data-aos="zoom-in-up" data-aos-duration="1800" data-aos-easing="ease-out-back">
@@ -28,8 +28,8 @@ const Hero: React.FC = () => {
             Command...Collaborate...Secure the Future.....
           </p>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
-            Join an exclusive community of cybersecurity leaders shaping the future of digital defense
-          </p>
+            An elite network of cyber leaders shaping tomorrow’s digital defense and intelligent risk strategies.
+            </p>
         </div>
 
         {/* Feature Cards */}
@@ -45,7 +45,21 @@ const Hero: React.FC = () => {
             <p className="text-gray-300 text-sm">Connect with top-tier security executives</p>
           </div>
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-green-500/20 hover:border-green-400/50 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1200" data-aos-easing="ease-out-back">
-            <Zap className="w-12 h-12 text-green-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+            <img 
+              src="/images/Logo_innovation-50.png" 
+              alt="Innovation Focus" 
+              className="w-12 h-12 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+              style={{
+                filter: 'brightness(0) saturate(100%) invert(58%) sepia(88%) saturate(2950%) hue-rotate(185deg) brightness(94%) contrast(101%)'
+              }}
+              onError={(e) => {
+                // Fallback to Zap icon if image fails to load
+                e.currentTarget.style.display = 'none';
+                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'block';
+              }}
+            />
+            <Zap className="w-12 h-12 text-green-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 hidden" />
             <h3 className="text-lg font-semibold text-white mb-2">Innovation Focus</h3>
             <p className="text-gray-300 text-sm">Cutting-edge insights and emerging technologies</p>
           </div>
@@ -63,7 +77,7 @@ const Hero: React.FC = () => {
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-transparent border-2 border-purple-500 hover:bg-purple-500/20 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
-            Learn More
+            Programs Track
           </button>
         </div>
 

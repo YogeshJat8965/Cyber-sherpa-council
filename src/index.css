@@ -38,3 +38,22 @@ html {
 .animate-fade-in-safe {
   animation: fadeInSafe 1s ease-out;
 }
+
+/* Text shimmer animation */
+@keyframes text-shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-text-shimmer {
+  animation: text-shimmer 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+.bg-size-200 {
+  background-size: 200% 200%;
+}

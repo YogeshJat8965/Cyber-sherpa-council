@@ -25,6 +25,7 @@ const About: React.FC = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
 Elite Tracks Empowering Cybersecurity Leadership in the AI-First Era
 The Cyber Sherpa Council is a strategic leadership consortium uniting cybersecurity executives across industries and geographies. In an age of unprecedented disruption and innovation, we offer a carefully curated suite of programs designed to prepare today’s cybersecurity leaders for tomorrow’s autonomous, AI-powered threat landscape.
+
           </p>
         </div>
 
@@ -78,14 +79,14 @@ The Cyber Sherpa Council is a strategic leadership consortium uniting cybersecur
 
         {/* Call to Action */}
         <div className="text-center mt-16" data-aos="fade-up" data-aos-delay="800">
-          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-600/10 rounded-2xl p-8 border border-gradient-to-r border-cyan-500/20">
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Join the Elite?</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-cyan-500/30 to-purple-600/30 rounded-2xl p-8 border-2 border-cyan-400/60 shadow-2xl shadow-cyan-500/25 backdrop-blur-lg">
+            <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300 mb-4">Ready to Join the Elite?</h3>
+            <p className="text-gray-200 mb-6 max-w-2xl mx-auto text-lg">
               Experience the difference that strategic cybersecurity leadership makes. Join a community that's shaping the future of digital security.
             </p>
             <button
               onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/40 text-lg"
             >
               Start Your Application
             </button>
