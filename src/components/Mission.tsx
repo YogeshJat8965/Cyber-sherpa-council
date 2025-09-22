@@ -76,17 +76,25 @@ const StrategicPillars: React.FC = () => {
       
       {/* Content - Sharp and Clear */}
       <div className="relative z-10 w-full max-w-7xl lg:mt-[-3rem] mt-16 sm:mt-20">
-        <header className="text-center mb-12 lg:mb-16">
+        <header className="text-center mb-12 lg:mb-16" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-aos-easing="ease-out">
           <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-wider mb-4">OUR VISION & MISSION</h1>
           <p className="text-xl lg:text-2xl text-white/90 font-medium tracking-wide">The Values That Drive Us Forward</p>
         </header>
 
         <main className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-24">
-            {pillarData.map((pillar) => {
+            {pillarData.map((pillar, index) => {
               const variant = colorVariants[pillar.color as keyof typeof colorVariants];
               return (
-                <div key={pillar.number} className="relative flex justify-center group cursor-pointer">
+                <div 
+                  key={pillar.number} 
+                  className="relative flex justify-center group cursor-pointer"
+                  data-aos="fade-up" 
+                  data-aos-duration="500" 
+                  data-aos-delay={index * 100}
+                  data-aos-offset="100"
+                  data-aos-easing="ease-out"
+                >
                   <div className="relative pt-12 w-full max-w-sm transition-transform duration-300 ease-in-out group-hover:-translate-y-3">
                     {/* Angled Base */}
                     <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-r ${variant.base} rounded-lg transform skew-y-[-4deg] transition-transform duration-300 group-hover:skew-y-[-6deg] group-hover:scale-105`}></div>
