@@ -15,7 +15,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
     { id: 'mission', label: 'Mission' },
     { id: 'pillars', label: 'Pillars' },
     { id: 'tracks', label: 'Tracks' },
-    { id: 'why-join', label: 'Why Join' },
+    { id: 'why-join-us', label: 'Why Join' },
     { id: 'leadership', label: 'Leadership' },
     { id: 'awards', label: 'Awards' },
     { id: 'faq', label: 'FAQ' },

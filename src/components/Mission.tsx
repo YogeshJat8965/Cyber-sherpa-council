@@ -58,7 +58,7 @@ const colorVariants = {
 
 const StrategicPillars: React.FC = () => {
   return (
-    <div className="min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8 relative">
+    <section id="mission" className="min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8 relative">
       {/* Blurred Background Image Layer */}
       <div 
         className="absolute inset-0"
@@ -75,9 +75,10 @@ const StrategicPillars: React.FC = () => {
       <div className="absolute inset-0 bg-black/20"></div>
       
       {/* Content - Sharp and Clear */}
-      <div className="relative z-10 w-full max-w-7xl">
-        <header className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-wider">OUR VISION & MISSION</h1>
+      <div className="relative z-10 w-full max-w-7xl lg:mt-[-3rem] mt-16 sm:mt-20">
+        <header className="text-center mb-12 lg:mb-16">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-wider mb-4">OUR VISION & MISSION</h1>
+          <p className="text-xl lg:text-2xl text-white/90 font-medium tracking-wide">The Values That Drive Us Forward</p>
         </header>
 
         <main className="w-full">
@@ -124,7 +125,7 @@ const StrategicPillars: React.FC = () => {
           </div>
         </main>
       </div>
-    </div>
+    </section>
   );
 };
 

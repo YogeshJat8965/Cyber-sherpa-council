@@ -103,7 +103,7 @@ const ProgramTracks: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-aos-easing="ease-out">
             Program Tracks
           </h2>
         </div>
@@ -116,6 +116,11 @@ const ProgramTracks: React.FC = () => {
               <div
                 key={index}
                 className="bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300 group hover:transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl flex flex-col h-[520px]"
+                data-aos="fade-up" 
+                data-aos-duration="400" 
+                data-aos-delay={index * 50}
+                data-aos-offset="100"
+                data-aos-easing="ease-out"
               >
                 {/* Header Section - Fixed 140px height */}
                 <div className="text-center p-6 pb-4" style={{ height: '140px' }}>
@@ -166,13 +171,21 @@ const ProgramTracks: React.FC = () => {
         </div>
 
         {/* Certifications Section */}
-        <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg max-w-4xl mx-auto mb-16">
+        <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="500" data-aos-offset="80" data-aos-easing="ease-out">
           <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">CISO Vanguard Certification Pathway</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
             {certifications.map((cert, index) => {
               const IconComponent = cert.icon;
               return (
-                <div key={index} className="flex flex-col items-center text-center group">
+                <div 
+                  key={index} 
+                  className="flex flex-col items-center text-center group"
+                  data-aos="zoom-in" 
+                  data-aos-duration="350" 
+                  data-aos-delay={index * 100}
+                  data-aos-offset="50"
+                  data-aos-easing="ease-out"
+                >
                   <div className="w-32 h-32 bg-gray-100 border-2 border-cyan-400 rounded-full flex flex-col items-center justify-center p-3 transition-all duration-300 group-hover:scale-105 group-hover:border-cyan-300 shadow-lg">
                     <IconComponent className="w-8 h-8 text-cyan-500 mb-2 transition-transform duration-300 group-hover:scale-110" />
                     <h4 className="text-sm font-semibold text-gray-800 mb-1">{cert.title}</h4>
@@ -185,7 +198,7 @@ const ProgramTracks: React.FC = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-duration="400" data-aos-offset="50" data-aos-easing="ease-out">
             <button className="flex items-center justify-center gap-2 px-6 py-3 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-600 transition-colors duration-300 transform hover:scale-105">
                 <CalendarDays className="w-5 h-5" />
                 View Upcoming Programs

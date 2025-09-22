@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16" data-aos="zoom-in" data-aos-delay="1100" data-aos-duration="1000" data-aos-easing="ease-out-back">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <button
             onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
