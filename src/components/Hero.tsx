@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
             <h3 className="text-lg font-semibold text-white mb-2">Elite Network</h3>
             <p className="text-gray-300 text-sm">Connect with top-tier security executives</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-green-500/20 hover:border-green-400/50 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1200" data-aos-easing="ease-out-back">
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-green-500/20 hover:border-green-400/50 transition-all duration-300 group">
             <img 
               src="/images/Logo_innovation-50.png" 
               alt="Innovation Focus" 
