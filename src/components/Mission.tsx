@@ -58,54 +58,72 @@ const colorVariants = {
 
 const StrategicPillars: React.FC = () => {
   return (
-    <div className="bg-gray-100 min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8">
-      <header className="text-center mb-16">
-        <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 tracking-wider">OUR MISSION</h1>
-      </header>
+    <div className="min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8 relative">
+      {/* Blurred Background Image Layer */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'url(/images/backgroundImageForMission.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(3px)'
+        }}
+      ></div>
+      
+      {/* Optional overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/20"></div>
+      
+      {/* Content - Sharp and Clear */}
+      <div className="relative z-10 w-full max-w-7xl">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-wider">OUR VISION & MISSION</h1>
+        </header>
 
-      <main className="w-full max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-24">
-          {pillarData.map((pillar) => {
-            const variant = colorVariants[pillar.color as keyof typeof colorVariants];
-            return (
-              <div key={pillar.number} className="relative flex justify-center group cursor-pointer">
-                <div className="relative pt-12 w-full max-w-sm transition-transform duration-300 ease-in-out group-hover:-translate-y-3">
-                  {/* Angled Base */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-r ${variant.base} rounded-lg transform skew-y-[-4deg] transition-transform duration-300 group-hover:skew-y-[-6deg] group-hover:scale-105`}></div>
+        <main className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-24">
+            {pillarData.map((pillar) => {
+              const variant = colorVariants[pillar.color as keyof typeof colorVariants];
+              return (
+                <div key={pillar.number} className="relative flex justify-center group cursor-pointer">
+                  <div className="relative pt-12 w-full max-w-sm transition-transform duration-300 ease-in-out group-hover:-translate-y-3">
+                    {/* Angled Base */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-r ${variant.base} rounded-lg transform skew-y-[-4deg] transition-transform duration-300 group-hover:skew-y-[-6deg] group-hover:scale-105`}></div>
 
-                  {/* Main Content Card */}
-                  <div className="relative bg-white rounded-xl shadow-lg p-6 text-center z-10 transition-shadow duration-300 group-hover:shadow-2xl">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <div className={`w-24 h-24 rounded-full flex items-center justify-center ${variant.bg} shadow-lg ${variant.shadow} transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6`}>
-                        <img 
-                          src={pillar.iconSrc} 
-                          alt={pillar.title}
-                          className="w-12 h-12 object-contain filter brightness-0 invert"
-                          onError={(e) => {
-                            // Fallback to a simple icon if image fails to load
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            target.parentElement!.innerHTML = '<div class="w-12 h-12 bg-white rounded-full opacity-80"></div>';
-                          }}
-                        />
+                    {/* Main Content Card */}
+                    <div className="relative bg-white rounded-xl shadow-lg p-6 text-center z-10 transition-shadow duration-300 group-hover:shadow-2xl">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div className={`w-24 h-24 rounded-full flex items-center justify-center ${variant.bg} shadow-lg ${variant.shadow} transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6`}>
+                          <img 
+                            src={pillar.iconSrc} 
+                            alt={pillar.title}
+                            className="w-12 h-12 object-contain filter brightness-0 invert"
+                            onError={(e) => {
+                              // Fallback to a simple icon if image fails to load
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.parentElement!.innerHTML = '<div class="w-12 h-12 bg-white rounded-full opacity-80"></div>';
+                            }}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="pt-12">
-                      <h2 className="text-2xl font-bold text-gray-800 my-2">{pillar.title}</h2>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                        {pillar.description}
-                      </p>
-                      <hr className="border-t border-gray-200" />
-                      <p className="mt-4 text-3xl font-bold text-gray-300">{pillar.number}</p>
+                      
+                      <div className="pt-12">
+                        <h2 className="text-2xl font-bold text-gray-800 my-2">{pillar.title}</h2>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                          {pillar.description}
+                        </p>
+                        <hr className="border-t border-gray-200" />
+                        <p className="mt-4 text-3xl font-bold text-gray-300">{pillar.number}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-      </main>
+              );
+            })}
+          </div>
+        </main>
+      </div>
     </div>
   );
 };

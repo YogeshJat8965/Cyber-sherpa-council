@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { LinkedinIcon, TwitterIcon, MailIcon } from 'lucide-react';
 
 const Leadership: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [yearsCount, setYearsCount] = useState(0);
+  const [countriesCount, setCountriesCount] = useState(0);
+  const [leadersCount, setLeadersCount] = useState(0);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const animationTimeouts = useRef<NodeJS.Timeout[]>([]);
+
   const leaders = [
     {
       name: "Dr. Alexandra Vasquez",
@@ -33,28 +40,112 @@ const Leadership: React.FC = () => {
     }
   ];
 
-  const advisoryBoard = [
-    {
-      name: "Former NSA Director",
-      title: "Strategic Security Advisor",
-      company: "US Government"
-    },
-    {
-      name: "Fortune 10 CISO",
-      title: "Enterprise Security Advisor",
-      company: "Technology Sector"
-    },
-    {
-      name: "EU Cybersecurity Chief",
-      title: "International Policy Advisor",
-      company: "European Union"
-    },
-    {
-      name: "Venture Capital Partner",
-      title: "Innovation & Investment Advisor",
-      company: "Cybersecurity VC"
+  // Clear any existing animation timeouts
+  const clearAnimationTimeouts = () => {
+    animationTimeouts.current.forEach(timeout => clearTimeout(timeout));
+    animationTimeouts.current = [];
+  };
+
+  // Reset counters to 0
+  const resetCounters = () => {
+    setYearsCount(0);
+    setCountriesCount(0);
+    setLeadersCount(0);
+  };
+
+  // Intersection Observer to detect when stats section is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Reset counters and clear any existing animations
+          clearAnimationTimeouts();
+          resetCounters();
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Trigger a bit earlier
+      }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
     }
-  ];
+
+    return () => {
+      clearAnimationTimeouts();
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, []);
+
+  // Animated counter function
+  const animateCounter = (
+    start: number,
+    end: number,
+    duration: number,
+    setCounter: React.Dispatch<React.SetStateAction<number>>
+  ) => {
+    let startTimestamp: number | null = null;
+    let animationId: number;
+    
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(start + (end - start) * easeOutCubic);
+      
+      setCounter(currentValue);
+      
+      if (progress < 1) {
+        animationId = window.requestAnimationFrame(step);
+      }
+    };
+    
+    animationId = window.requestAnimationFrame(step);
+    
+    // Return cleanup function
+    return () => {
+      if (animationId) {
+        window.cancelAnimationFrame(animationId);
+      }
+    };
+  };
+
+  // Start animations when component becomes visible
+  useEffect(() => {
+    if (isVisible) {
+      // Clear any existing timeouts
+      clearAnimationTimeouts();
+      
+      // Create new animation timeouts with staggered delays
+      const timeout1 = setTimeout(() => {
+        animateCounter(0, 100, 2000, setYearsCount);
+      }, 200);
+      
+      const timeout2 = setTimeout(() => {
+        animateCounter(0, 15, 1800, setCountriesCount);
+      }, 600);
+      
+      const timeout3 = setTimeout(() => {
+        animateCounter(0, 500, 2500, setLeadersCount);
+      }, 1000);
+      
+      // Store timeouts for cleanup
+      animationTimeouts.current = [timeout1, timeout2, timeout3];
+    } else {
+      // Clear animations when not visible
+      clearAnimationTimeouts();
+      resetCounters();
+    }
+  }, [isVisible]);
 
   return (
     <section id="leadership" className="py-20 bg-gradient-to-br from-gray-800 via-blue-900/20 to-purple-900/20 relative overflow-hidden">
@@ -67,83 +158,15 @@ const Leadership: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-6">
-            Advisory Leadership
+            Advisory Leadership That Shapes the Future
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            World-class cybersecurity leaders guiding the future of the industry
+            Led by elite CISOs and security visionaries, our council defines the frontier of cyber strategy, innovation, and global resilience. Their collective insight powers transformation, trust, and tactical foresight for tomorrow's enterprise.
           </p>
         </div>
 
         {/* Executive Leadership */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Executive Team</h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {leaders.map((leader, index) => (
-              <div
-                key={index}
-                className="bg-white/5 backdrop-blur-lg rounded-xl p-8 border border-gray-700/50 hover:border-purple-400/50 transition-all duration-300 group"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-24 h-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="flex-1 text-center md:text-left">
-                    <h4 className="text-xl font-bold text-white mb-2">{leader.name}</h4>
-                    <p className="text-purple-400 font-medium mb-3">{leader.title}</p>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-4">{leader.bio}</p>
-                    
-                    {/* Expertise Tags */}
-                    <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
-                      {leader.expertise.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded-full border border-cyan-400/20"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    {/* Social Links */}
-                    <div className="flex justify-center md:justify-start space-x-3">
-                      <button className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
-                        <LinkedinIcon className="w-5 h-5" />
-                      </button>
-                      <button className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
-                        <TwitterIcon className="w-5 h-5" />
-                      </button>
-                      <button className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
-                        <MailIcon className="w-5 h-5" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Advisory Board */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Strategic Advisory Board</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {advisoryBoard.map((advisor, index) => (
-              <div
-                key={index}
-                className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300 text-center group hover:transform hover:scale-105"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">{advisor.name.charAt(0)}</span>
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{advisor.name}</h4>
-                <p className="text-cyan-400 text-sm font-medium mb-2">{advisor.title}</p>
-                <p className="text-gray-400 text-xs">{advisor.company}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        
 
         {/* Leadership Philosophy */}
         <div className="bg-gradient-to-r from-purple-900/30 to-cyan-900/30 rounded-2xl p-8 border border-purple-500/20">
@@ -156,21 +179,79 @@ const Leadership: React.FC = () => {
               and the ability to communicate complex security concepts to diverse stakeholders.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-400 mb-2">100+ Years</div>
-                <div className="text-gray-300">Combined Experience</div>
+            {/* Animated Stats */}
+            <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center group">
+                <div className={`text-4xl font-bold text-cyan-400 mb-2 transition-all duration-500 ${isVisible ? 'scale-110' : 'scale-100'}`}>
+                  {yearsCount}+
+                  <span className="text-2xl ml-1">Years</span>
+                </div>
+                <div className="text-gray-300 font-medium">Combined Experience</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-400 mb-2">15 Countries</div>
-                <div className="text-gray-300">Global Expertise</div>
+              <div className="text-center group">
+                <div className={`text-4xl font-bold text-purple-400 mb-2 transition-all duration-500 ${isVisible ? 'scale-110' : 'scale-100'}`}>
+                  {countriesCount}
+                  <span className="text-2xl ml-1">Countries</span>
+                </div>
+                <div className="text-gray-300 font-medium">Global Expertise</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-400 mb-2">500+ Leaders</div>
-                <div className="text-gray-300">Developed</div>
+              <div className="text-center group">
+                <div className={`text-4xl font-bold text-green-400 mb-2 transition-all duration-500 ${isVisible ? 'scale-110' : 'scale-100'}`}>
+                  {leadersCount}+
+                  <span className="text-2xl ml-1">Leaders</span>
+                </div>
+                <div className="text-gray-300 font-medium">Developed</div>
               </div>
             </div>
+
+            {/* Additional visual feedback */}
+            {isVisible && (
+              <div className="mt-8 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 via-purple-400 to-green-400 rounded-full animate-pulse"></div>
+              </div>
+            )}
           </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-16 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-xl font-semibold text-white text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus:ring-4 focus:ring-purple-500/50 min-w-[280px]">
+            {/* Background animation */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-cyan-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></div>
+            
+            {/* Button text */}
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <span className="group-hover:translate-x-1 transition-transform duration-200">Meet the Advisory Board</span>
+              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            
+            {/* Glow effect */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 -z-10"></div>
+          </button>
+
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-xl font-semibold text-white text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 min-w-[280px]">
+            {/* Background animation */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></div>
+            
+            {/* Button text */}
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              <span className="group-hover:-translate-x-1 transition-transform duration-200">Join the Leadership Circle</span>
+            </span>
+            
+            {/* Glow effect */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-600 to-purple-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 -z-10"></div>
+          </button>
         </div>
       </div>
     </section>

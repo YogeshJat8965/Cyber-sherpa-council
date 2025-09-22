@@ -47,7 +47,28 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Main Footer Content */}
+        {/* Newsletter Signup - Moved to top */}
+        <div className="bg-white/5 backdrop-blur-lg rounded-xl p-8 border border-gray-700/50 mb-12">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-white mb-4">Stay Connected</h3>
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              Get exclusive insights, industry reports, and early access to events from the world's 
+              leading cybersecurity executives.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50"
+              />
+              <button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Footer Content - Moved to bottom */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -79,6 +100,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
+
             <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
@@ -126,27 +148,6 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Newsletter Signup */}
-        <div className="bg-white/5 backdrop-blur-lg rounded-xl p-8 border border-gray-700/50 mb-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">Stay Connected</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Get exclusive insights, industry reports, and early access to events from the world's 
-              leading cybersecurity executives.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50"
-              />
-              <button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Subscribe
-              </button>
-            </div>
           </div>
         </div>
 

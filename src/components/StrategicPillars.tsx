@@ -1,128 +1,104 @@
 import React from 'react';
-import { Brain, Users, Lightbulb, Zap, Shield, Globe } from 'lucide-react';
 
-const StrategicPillars: React.FC = () => {
-  const pillars = [
-    {
-      icon: Brain,
-      title: 'Strategic Leadership',
-      description: 'Developing next-generation cybersecurity leaders with business acumen and strategic vision.',
-      color: 'cyan'
-    },
-    {
-      icon: Users,
-      title: 'Peer Collaboration',
-      description: 'Fostering meaningful connections and knowledge sharing among industry leaders.',
-      color: 'purple'
-    },
-    {
-      icon: Lightbulb,
-      title: 'Innovation Focus',
-      description: 'Driving innovation through research, emerging technology adoption, and strategic partnerships.',
-      color: 'green'
-    },
-    {
-      icon: Zap,
-      title: 'Rapid Response',
-      description: 'Building agile response capabilities for emerging threats and crisis management.',
-      color: 'yellow'
-    },
-    {
-      icon: Shield,
-      title: 'Risk Excellence',
-      description: 'Advancing risk management frameworks and organizational resilience strategies.',
-      color: 'blue'
-    },
-    {
-      icon: Globe,
-      title: 'Global Impact',
-      description: 'Influencing policy and standards at national and international levels.',
-      color: 'red'
-    }
-  ];
+// --- Data for the Four Pillars ---
+// Updated with your specific images
+const pillarData = [
+  {
+    id: 1,
+    title: 'Resilience Leadership',
+    imageUrl: '/images/leadershipImage.png',
+  },
+  {
+    id: 2,
+    title: 'Collaborative Intelligence',
+    imageUrl: '/images/CollaborativeIntelligence.jpg',
+  },
+  {
+    id: 3,
+    title: 'Secure Innovation',
+    imageUrl: '/images/innovationImage.jpg',
+  },
+  {
+    id: 4,
+    title: 'Boardroom Integration',
+    imageUrl: '/images/Boardroom Integration.webp',
+  },
+];
 
-  const colorClasses = {
-    cyan: 'border-cyan-500/20 hover:border-cyan-400/50 text-cyan-400',
-    purple: 'border-purple-500/20 hover:border-purple-400/50 text-purple-400',
-    green: 'border-green-500/20 hover:border-green-400/50 text-green-400',
-    yellow: 'border-yellow-500/20 hover:border-yellow-400/50 text-yellow-400',
-    blue: 'border-blue-500/20 hover:border-blue-400/50 text-blue-400',
-    red: 'border-red-500/20 hover:border-red-400/50 text-red-400'
-  };
-
+// --- The Main React Component ---
+const StrategicPillarsPage: React.FC = () => {
   return (
-    <section id="pillars" className="py-20 bg-gray-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <>
+      {/* Keyframes for animations */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { 
+            opacity: 0; 
+            transform: translateY(30px); 
+          }
+          to { 
+            opacity: 1; 
+            transform: translateY(0); 
+          }
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+      `}</style>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 mb-6" data-aos="fade-down" data-aos-duration="1400" data-aos-easing="ease-out-back">
-            Strategic Pillars
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200">
-            Six foundational pillars that guide our approach to cybersecurity leadership development
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pillars.map((pillar, index) => {
-            const IconComponent = pillar.icon;
-            const colorClass = colorClasses[pillar.color as keyof typeof colorClasses];
-            
-            return (
-              <div
-                key={index}
-                className={`bg-white/5 backdrop-blur-lg rounded-xl p-8 border ${colorClass} transition-all duration-300 group hover:transform hover:scale-105`}
-                data-aos="fade-up"
-                data-aos-delay={600 + index * 150}
-                data-aos-duration="1300"
-                data-aos-easing="ease-out-back"
-              >
-                <div className="text-center mb-6">
-                  <IconComponent className={`w-16 h-16 mx-auto mb-4 ${colorClass.split(' ')[2]} group-hover:scale-110 transition-transform duration-300`} />
-                  <h3 className="text-xl font-bold text-white">{pillar.title}</h3>
-                </div>
-                <p className="text-gray-300 leading-relaxed text-center">
-                  {pillar.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Framework Overview */}
-        <div className="mt-16" data-aos="fade-up" data-aos-delay="1000">
-          <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl p-8 border border-gray-600/30">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">Integrated Framework</h3>
-            <p className="text-gray-300 text-center leading-relaxed max-w-4xl mx-auto">
-              Our Strategic Pillars work synergistically to create a comprehensive leadership development ecosystem. 
-              Each pillar reinforces and amplifies the others, ensuring our members develop well-rounded capabilities 
-              that translate into measurable organizational impact.
+      <div className="w-full bg-gray-100 font-sans py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 tracking-wide">
+              Our Strategic Pillars
+            </h1>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Guiding our mission to build a secure and resilient digital future.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-400 mb-2">360°</div>
-                <div className="text-gray-300">Comprehensive Development</div>
+          </div>
+
+          {/* Grid container for the pillar cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {pillarData.map((pillar, index) => (
+              <div
+                key={pillar.id}
+                className="group relative bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Image container */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={pillar.imageUrl}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    onError={(e) => {
+                      // Fallback if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/images/placeholder.jpg';
+                      target.alt = `${pillar.title} - Image not available`;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                </div>
+
+                {/* Number circle */}
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 shadow-lg border-2 border-white transition-all duration-300 group-hover:bg-white group-hover:scale-110">
+                  {`0${pillar.id}`}
+                </div>
+
+                {/* Content container */}
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-gray-900 h-16 flex items-center">
+                    {pillar.title}
+                  </h2>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400 mb-2">24/7</div>
-                <div className="text-gray-300">Continuous Support</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
-                <div className="text-gray-300">Practical Application</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
-export default StrategicPillars;
+export default StrategicPillarsPage;

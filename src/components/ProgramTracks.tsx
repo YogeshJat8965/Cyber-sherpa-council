@@ -1,155 +1,199 @@
 import React from 'react';
-import { GraduationCap, Crown, Rocket, Users2, BookOpen, Award } from 'lucide-react';
+import { 
+  TrendingUp, 
+  Gamepad2, 
+  BrainCircuit, 
+  Orbit, 
+  HeartHandshake, 
+  Mountain, 
+  BadgeCheck,
+  BookOpen,
+  Award,
+  Users2,
+  Download,
+  CalendarDays,
+  Clock,
+  Users
+} from 'lucide-react';
 
+// --- The Main React Component ---
 const ProgramTracks: React.FC = () => {
+  // Redesigned tracks with consistent structure and length
   const tracks = [
     {
-      icon: GraduationCap,
-      title: 'Foundation Track',
-      level: 'Entry Level',
-      duration: '6 Months',
-      description: 'Essential cybersecurity leadership fundamentals for emerging CISOs and senior security managers.',
-      features: [
-        'Leadership Fundamentals',
-        'Risk Assessment Frameworks',
-        'Business Alignment Strategies',
-        'Team Building & Communication',
-        'Peer Mentorship Program'
-      ],
-      gradient: 'from-cyan-500 to-blue-600'
-    },
-    {
-      icon: Crown,
-      title: 'Executive Track',
-      level: 'Advanced',
+      icon: TrendingUp,
+      title: 'CISO Ascend',
+      level: 'Executive Leadership',
       duration: '12 Months',
-      description: 'Advanced strategic leadership for experienced CISOs ready to drive organizational transformation.',
-      features: [
-        'Strategic Planning & Execution',
-        'Board-Level Communication',
-        'Crisis Leadership & Response',
-        'Innovation Management',
-        'Executive Advisory Board Access'
-      ],
-      gradient: 'from-purple-500 to-pink-600'
+      description: 'Transform into a strategic business leader with boardroom influence and executive brand elevation.',
+      features: ['Executive storytelling & communication', 'M&A security strategy', 'Crisis leadership management', 'Personal branding & thought leadership'],
+      color: 'bg-cyan-500'
     },
     {
-      icon: Rocket,
-      title: 'Innovation Track',
-      level: 'Specialized',
+      icon: Gamepad2,
+      title: 'The CISO Arena',
+      level: 'Simulation & Labs',
+      duration: '6 Months',
+      description: 'Master real-time adversarial scenarios through gamified command center simulations.',
+      features: ['Live crisis drill simulations', 'SOC optimization laboratories', 'AI-based cyber warfare modeling', 'Zero-day response protocols'],
+      color: 'bg-red-500'
+    },
+    {
+      icon: BrainCircuit,
+      title: 'CyberThink',
+      level: 'Strategic Policy',
       duration: '9 Months',
-      description: 'Cutting-edge technology leadership for CISOs driving digital transformation initiatives.',
-      features: [
-        'Emerging Technology Assessment',
-        'Digital Transformation Leadership',
-        'AI/ML Security Integration',
-        'Cloud-Native Security Strategies',
-        'Technology Research Partnerships'
-      ],
-      gradient: 'from-green-500 to-teal-600'
+      description: 'Shape the future of digital trust through exclusive strategy exchanges and policy development.',
+      features: ['Quarterly strategic councils', 'Policy whitepaper development', 'Government collaboration tracks', 'Regulatory foresight planning'],
+      color: 'bg-indigo-500'
+    },
+    {
+      icon: Orbit,
+      title: 'Sentinel Studio',
+      level: 'Emerging Tech',
+      duration: '8 Months',
+      description: 'Stay ahead with cutting-edge security innovations and deep-tech immersion programs.',
+      features: ['Deep-dive GenAI security sessions', 'Blockchain security architecture', 'Zero-trust implementation', 'Post-quantum cryptography'],
+      color: 'bg-green-500'
+    },
+    {
+      icon: HeartHandshake,
+      title: 'CyberEdge Mentorship',
+      level: 'Leadership Development',
+      duration: '18 Months',
+      description: 'Build future cybersecurity leaders through dual-path mentorship and knowledge transfer.',
+      features: ['Shadow-a-CISO program', 'Women in cybersecurity initiatives', 'DEI+ leadership development pods', 'Cross-generational mentoring'],
+      color: 'bg-pink-500'
+    },
+  
+    {
+      icon: BadgeCheck,
+      title: 'CISO Vanguard Certification',
+      level: 'AI-Ready Leadership',
+      duration: '6 Months',
+      description: 'Exclusive certification for holistic leadership in cognitive security environments.',
+      features: ['Peer-reviewed cohort learning', 'Blockchain-verified credentials', 'Portfolio-based assessments', 'Board simulation capstone'],
+      color: 'bg-blue-500'
     }
   ];
 
+  // Updated certifications content
   const certifications = [
-    { icon: BookOpen, title: 'Cyber Sherpa Certified', description: '6-month cohort' },
-    { icon: Award, title: 'Strategic Leader', description: 'Blockchain credentialing' },
-    { icon: Users2, title: 'Innovation Pioneer', description: 'Portfolio-based evaluation' }
+    { icon: BookOpen, title: '6-Month Cohort', description: 'Peer-reviewed learning' },
+    { icon: Award, title: 'Blockchain Credentialing', description: 'Verifiable and secure' },
+    { icon: Users2, title: 'Portfolio-Based Evaluation', description: 'Real-world-ready skills' }
   ];
 
   return (
-    <section id="tracks" className="py-20 bg-gradient-to-br from-gray-800 via-purple-900/20 to-blue-900/20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section 
+      id="tracks" 
+      className="py-20 relative overflow-hidden bg-gray-800"
+    >
+      <div 
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'url(/images/texture2.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(8px)',
+          opacity: 0.3
+        }}
+      ></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
             Program Tracks
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Tailored learning paths designed to accelerate your cybersecurity leadership journey
-          </p>
         </div>
 
-        {/* Program Tracks */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        {/* Redesigned cards with perfect alignment */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {tracks.map((track, index) => {
             const IconComponent = track.icon;
             return (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-700/50 hover:border-gray-600/70 transition-all duration-300 group hover:transform hover:scale-105"
+                className="bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300 group hover:transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl flex flex-col h-[520px]"
               >
-                {/* Header */}
-                <div className="text-center mb-6">
-                  <div className={`w-20 h-20 rounded-full bg-gradient-to-r ${track.gradient} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-10 h-10 text-white" />
+                {/* Header Section - Fixed 140px height */}
+                <div className="text-center p-6 pb-4" style={{ height: '140px' }}>
+                  <div className={`w-16 h-16 rounded-full ${track.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{track.title}</h3>
-                  <div className="flex justify-center space-x-4 text-sm text-gray-400">
-                    <span>{track.level}</span>
-                    <span>•</span>
-                    <span>{track.duration}</span>
-                  </div>
+                  <h3 className="text-lg font-bold text-gray-800 leading-tight">{track.title}</h3>
                 </div>
 
-                {/* Description */}
-                <p className="text-gray-300 text-center mb-6 leading-relaxed">
-                  {track.description}
-                </p>
-
-                {/* Features */}
-                <div className="space-y-3 mb-8">
-                  {track.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${track.gradient}`}></div>
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                {/* Level & Duration Section - Fixed 60px height */}
+                <div className="px-6 pb-4" style={{ height: '60px' }}>
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-1 text-gray-500">
+                      <Users className="w-3 h-3" />
+                      <span>{track.level}</span>
                     </div>
-                  ))}
+                    <div className="flex items-center gap-1 text-gray-500">
+                      <Clock className="w-3 h-3" />
+                      <span>{track.duration}</span>
+                    </div>
+                  </div>
                 </div>
 
-                {/* CTA Button */}
-                <button
-                  onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full bg-gradient-to-r ${track.gradient} hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105`}
-                >
-                  Learn More
-                </button>
+                {/* Description Section - Fixed 80px height */}
+                <div className="px-6 pb-4" style={{ height: '80px' }}>
+                  <p className="text-sm text-gray-600 text-center leading-relaxed">
+                    {track.description}
+                  </p>
+                </div>
+
+                {/* Key Focus Section - Remaining space with fixed positioning */}
+                <div className="px-6 pb-6 flex-1 flex flex-col">
+                  <div className="border-t pt-4">
+                    <h4 className="font-semibold text-gray-800 mb-3 text-center">Key Focus</h4>
+                    <div className="space-y-2 flex-1">
+                      {track.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-start space-x-3">
+                          <div className={`w-2 h-2 rounded-full ${track.color} flex-shrink-0 mt-1.5`}></div>
+                          <span className="text-gray-600 text-xs leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Certifications */}
-        <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/30">
-          <h3 className="text-3xl font-bold text-white text-center mb-8">Professional Certifications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Certifications Section */}
+        <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg max-w-4xl mx-auto mb-16">
+          <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">CISO Vanguard Certification Pathway</h3>
+          <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-12">
             {certifications.map((cert, index) => {
               const IconComponent = cert.icon;
               return (
-                <div key={index} className="text-center group">
-                  <IconComponent className="w-12 h-12 text-cyan-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                  <h4 className="text-lg font-semibold text-white mb-2">{cert.title}</h4>
-                  <p className="text-gray-300 text-sm">{cert.description}</p>
+                <div key={index} className="flex flex-col items-center text-center group">
+                  <div className="w-32 h-32 bg-gray-100 border-2 border-cyan-400 rounded-full flex flex-col items-center justify-center p-3 transition-all duration-300 group-hover:scale-105 group-hover:border-cyan-300 shadow-lg">
+                    <IconComponent className="w-8 h-8 text-cyan-500 mb-2 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 className="text-sm font-semibold text-gray-800 mb-1">{cert.title}</h4>
+                    <p className="text-gray-600 text-xs">{cert.description}</p>
+                  </div>
                 </div>
               );
             })}
           </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-gray-300 mb-4">
-              All certifications are recognized by leading cybersecurity organizations and Fortune 500 companies
-            </p>
-            <button
-              onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
-            >
-              Start Your Journey
+        </div>
+
+        {/* Action Buttons */}
+        <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="flex items-center justify-center gap-2 px-6 py-3 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-600 transition-colors duration-300 transform hover:scale-105">
+                <CalendarDays className="w-5 h-5" />
+                View Upcoming Programs
             </button>
-          </div>
+            <button className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-300 transform hover:scale-105">
+                <Download className="w-5 h-5" />
+                Download Program Brochure
+            </button>
         </div>
       </div>
     </section>
