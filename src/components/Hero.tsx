@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-20 sm:pt-24 md:pt-0">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
@@ -24,10 +24,10 @@ const Hero: React.FC = () => {
           {/* <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 animate-fade-in" data-aos="zoom-in-up" data-aos-duration="1800" data-aos-easing="ease-out-back">
             Cyber Sherpa Coun
           </h1> */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 max-w-4xl mx-auto leading-tight" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
             Command...Collaborate...Secure the Future.....
           </p>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 px-2" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
             An elite network of cyber leaders shaping tomorrow’s digital defense and intelligent risk strategies.
             </p>
         </div>

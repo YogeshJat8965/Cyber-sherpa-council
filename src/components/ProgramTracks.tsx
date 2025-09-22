@@ -168,7 +168,7 @@ const ProgramTracks: React.FC = () => {
         {/* Certifications Section */}
         <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg max-w-4xl mx-auto mb-16">
           <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">CISO Vanguard Certification Pathway</h3>
-          <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
             {certifications.map((cert, index) => {
               const IconComponent = cert.icon;
               return (
