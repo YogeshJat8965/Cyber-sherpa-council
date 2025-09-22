@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
             Become a Member
           </button>
           <button
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('tracks')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-transparent border-2 border-purple-500 hover:bg-purple-500/20 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
             Programs Track
