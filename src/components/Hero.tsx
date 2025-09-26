@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
             The World's Fastest-Growing Community
           </p>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-12 font-normal">
-            An elite network of cyber leaders shaping tomorrow's digital defense and intelligent risk strategies.
+            An elite network of cyber leaders shaping tomorrow's Digital Defense and Intelligent Risk Strategies.
           </p>
         </div>
 

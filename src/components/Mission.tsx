@@ -58,21 +58,21 @@ const colorVariants = {
 
 const StrategicPillars: React.FC = () => {
   return (
-    <section id="mission" className="min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8 relative">
-      {/* Blurred Background Image Layer */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          backgroundImage: 'url(/images/backgroundImageForMission.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          filter: 'blur(3px)'
-        }}
-      ></div>
+    <section id="mission" className="min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden">
+      {/* High Quality Animated GIF Background */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDlweWpvZHJ0ZjkxeGMwODNlNXg5ZWU3dHc1YnZ1dHA1ZHJyenl1aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0GqimU9dTwmE5lra/giphy.gif"
+          alt="Animated Background"
+          className="w-full h-full object-cover"
+          style={{
+            imageRendering: 'pixelated',
+          }}
+        />
+      </div>
       
       {/* Optional overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
       
       {/* Content - Sharp and Clear */}
       <div className="relative z-10 w-full max-w-7xl lg:mt-[-3rem] mt-16 sm:mt-20">
@@ -123,10 +123,6 @@ const StrategicPillars: React.FC = () => {
                           <p className="text-gray-600 text-sm leading-relaxed">
                             {pillar.description}
                           </p>
-                        </div>
-                        <div className="mt-6">
-                          <hr className="border-t border-gray-200 mb-4" />
-                          <p className="text-3xl font-bold text-gray-300">{pillar.number}</p>
                         </div>
                       </div>
                     </div>

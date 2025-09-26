@@ -81,11 +81,6 @@ const StrategicPillarsPage: React.FC = () => {
                   <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                 </div>
 
-                {/* Number circle */}
-                <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 shadow-lg border-2 border-white transition-all duration-300 group-hover:bg-white group-hover:scale-110">
-                  {`0${pillar.id}`}
-                </div>
-
                 {/* Content container */}
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-gray-900 h-16 flex items-center">
