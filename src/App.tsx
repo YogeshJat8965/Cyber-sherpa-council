@@ -15,6 +15,7 @@ import ApplicationForm from './components/ApplicationForm';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import { useScrollSpy } from './hooks/useScrollSpy';
+// import HeroSection from './components/HeroSection'; 
 
 function App() {
   const sectionIds = [

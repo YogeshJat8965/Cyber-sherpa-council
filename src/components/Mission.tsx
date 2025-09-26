@@ -13,7 +13,7 @@ const pillarData = [
   {
     number: '02',
     title: 'Our Vision',
-    description: 'To redefine the role of CISOs as not only guardians of security, but as enterprise enablers and architects of trust embedded in business decisions, digital strategy, and boardroom influence.',
+    description: 'To redefine the role of CISOs as not only guardians of security, but as enterprise enablers and architects of trust embedded in business decisions, digital strategy.',
     iconSrc: '/images/vission.png',
     color: 'orange',
   },
@@ -27,7 +27,7 @@ const pillarData = [
   {
     number: '04',
     title: 'Our Goals',
-    description: 'To build resilient digital ecosystems by empowering leaders, fostering collaboration, and driving innovation against emerging cyber threats.',
+    description: 'To build resilient and sustainable digital ecosystems by empowering leaders, fostering collaboration, and driving innovation against emerging cyber threats.',
     iconSrc: '/images/goal.png',
     color: 'blue',
   },
@@ -82,13 +82,13 @@ const StrategicPillars: React.FC = () => {
         </header>
 
         <main className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-32">
             {pillarData.map((pillar, index) => {
               const variant = colorVariants[pillar.color as keyof typeof colorVariants];
               return (
                 <div 
                   key={pillar.number} 
-                  className="relative flex justify-center group cursor-pointer"
+                  className="relative flex justify-center group cursor-pointer pt-8 pb-8"
                   data-aos="fade-up" 
                   data-aos-duration="500" 
                   data-aos-delay={index * 100}
@@ -97,10 +97,10 @@ const StrategicPillars: React.FC = () => {
                 >
                   <div className="relative pt-12 w-full max-w-sm transition-transform duration-300 ease-in-out group-hover:-translate-y-3">
                     {/* Angled Base */}
-                    <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-r ${variant.base} rounded-lg transform skew-y-[-4deg] transition-transform duration-300 group-hover:skew-y-[-6deg] group-hover:scale-105`}></div>
+                    <div className={`absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-r ${variant.base} rounded-lg transform skew-y-[-4deg] transition-transform duration-300 group-hover:skew-y-[-6deg] group-hover:scale-105`}></div>
 
                     {/* Main Content Card */}
-                    <div className="relative bg-white rounded-xl shadow-lg p-6 text-center z-10 transition-shadow duration-300 group-hover:shadow-2xl">
+                    <div className="relative bg-white rounded-xl shadow-lg p-6 text-center z-10 transition-shadow duration-300 group-hover:shadow-2xl h-90 flex flex-col">
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <div className={`w-24 h-24 rounded-full flex items-center justify-center ${variant.bg} shadow-lg ${variant.shadow} transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6`}>
                           <img 
@@ -117,13 +117,17 @@ const StrategicPillars: React.FC = () => {
                         </div>
                       </div>
                       
-                      <div className="pt-12">
-                        <h2 className="text-2xl font-bold text-gray-800 my-2">{pillar.title}</h2>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                          {pillar.description}
-                        </p>
-                        <hr className="border-t border-gray-200" />
-                        <p className="mt-4 text-3xl font-bold text-gray-300">{pillar.number}</p>
+                      <div className="pt-12 flex-1 flex flex-col justify-between">
+                        <div className="flex-1">
+                          <h2 className="text-2xl font-bold text-gray-800 mb-4">{pillar.title}</h2>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {pillar.description}
+                          </p>
+                        </div>
+                        <div className="mt-6">
+                          <hr className="border-t border-gray-200 mb-4" />
+                          <p className="text-3xl font-bold text-gray-300">{pillar.number}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
