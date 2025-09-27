@@ -8,19 +8,20 @@ import Mission from './components/Mission';
 import StrategicPillars from './components/StrategicPillars';
 import ProgramTracks from './components/ProgramTracks';
 import WhyJoin from './components/WhyJoin';
-import Leadership from './components/Leadership';
+import Leadership from './components/ExecutiveProfile';
 import Awards from './components/Awards';
 import FAQ from './components/FAQ';
-import ApplicationForm from './components/ApplicationForm';
+import StayConnected from './components/StayConnected';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import { useScrollSpy } from './hooks/useScrollSpy';
+import NewsAndInsights from './components/NewsAndInsights';
 // import HeroSection from './components/HeroSection'; 
 
 function App() {
   const sectionIds = [
     'hero', 'about', 'mission', 'pillars', 'tracks', 
-    'why-join', 'leadership', 'awards', 'faq', 'application'
+    'why-join', 'leadership', 'awards', 'faq'
   ];
   
   const activeSection = useScrollSpy(sectionIds);
@@ -41,7 +42,7 @@ function App() {
     });
 
     // Debug: Check if all sections exist
-    const requiredSections = ['hero', 'about', 'mission', 'pillars', 'tracks', 'why-join', 'leadership', 'awards', 'faq', 'application'];
+    const requiredSections = ['hero', 'about', 'mission', 'pillars', 'tracks', 'why-join', 'leadership', 'awards', 'faq'];
     console.log('Checking for required sections...');
     requiredSections.forEach(sectionId => {
       const element = document.getElementById(sectionId);
@@ -82,9 +83,10 @@ function App() {
       <div data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
         <FAQ />
       </div>
-      <div data-aos="zoom-in-up" data-aos-duration="1400" data-aos-easing="ease-out-back">
-        <ApplicationForm />
+      <div>
+        <NewsAndInsights></NewsAndInsights>
       </div>
+      <StayConnected />
       <Footer />
       <BackToTop />
     </div>

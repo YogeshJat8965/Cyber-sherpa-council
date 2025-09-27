@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
+import { openFormInNewTab } from '../utils/formUtils';
 
 interface NavigationProps {
   activeSection: string;
@@ -23,6 +24,13 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
 
   const scrollToSection = (sectionId: string) => {
     console.log('Scrolling to section:', sectionId);
+    
+    // Handle Apply button specially - open form in new tab
+    if (sectionId === 'application') {
+      openFormInNewTab();
+      setIsOpen(false);
+      return;
+    }
     
     const element = document.getElementById(sectionId);
     if (element) {
@@ -86,8 +94,10 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-base font-medium transition-colors duration-200 hover:text-blue-600 ${
-                  activeSection === item.id ? 'text-blue-600' : 'text-black'
+                className={`text-base transition-colors duration-200 hover:text-blue-600 ${
+                  item.id === 'application' 
+                    ? 'font-bold text-blue-600 hover:text-blue-700' 
+                    : 'font-medium text-black'
                 }`}
               >
                 {item.label}
@@ -112,8 +122,10 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-blue-600 ${
-                    activeSection === item.id ? 'text-blue-600' : 'text-black'
+                  className={`block w-full text-left px-3 py-2 text-base transition-colors duration-200 hover:text-blue-600 ${
+                    item.id === 'application' 
+                      ? 'font-bold text-blue-600 hover:text-blue-700' 
+                      : 'font-medium text-black'
                   }`}
                 >
                   {item.label}

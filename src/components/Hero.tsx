@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { openFormInNewTab } from '../utils/formUtils';
 
 const Hero: React.FC = () => {
   const scrollToNext = () => {
@@ -44,7 +45,7 @@ const Hero: React.FC = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-start mb-16">
           <button
-            onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => openFormInNewTab()}
             className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg"
           >
             Become a Member

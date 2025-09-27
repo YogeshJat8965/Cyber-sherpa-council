@@ -6,14 +6,14 @@ const pillarData = [
   {
     number: '01',
     title: 'Our Mission',
-    description: 'To cultivate a global network of cybersecurity leaders co-creating the future of secure digital transformation through intelligence sharing, strategic foresight, and innovation leadership.',
+    description: 'To cultivate a global network of Cybersecurity Leaders co-creating the future of secure digital transformation through Intelligence Sharing, Strategic Foresight, and Innovation Leadership.',
     iconSrc: '/images/mission.png',
     color: 'cyan',
   },
   {
     number: '02',
     title: 'Our Vision',
-    description: 'To redefine the role of CISOs as not only guardians of security, but as enterprise enablers and architects of trust embedded in business decisions, digital strategy.',
+    description: 'To redefine the role of CISOs as not only guardians of security, but as enterprise enablers and architects of trust embedded in Digital Strategy, and Boardroom Influence.',
     iconSrc: '/images/vission.png',
     color: 'orange',
   },
@@ -63,7 +63,7 @@ const StrategicPillars: React.FC = () => {
       <div className="absolute inset-0">
         <img 
           src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDlweWpvZHJ0ZjkxeGMwODNlNXg5ZWU3dHc1YnZ1dHA1ZHJyenl1aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0GqimU9dTwmE5lra/giphy.gif"
-          alt="Animated Background"
+          // alt="Animated Background"
           className="w-full h-full object-cover"
           style={{
             imageRendering: 'pixelated',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { openFormInNewTab } from '../utils/formUtils';
 
 const FAQ: React.FC = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -125,17 +126,17 @@ const FAQ: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => openFormInNewTab()}
                 className="bg-gradient-to-r from-purple-500 to-cyan-600 hover:from-purple-400 hover:to-cyan-500 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
               >
                 Apply Now
               </button>
-              <a
-                href="mailto:info@cybersherpacouncil.com"
+              <button
+                onClick={() => openFormInNewTab()}
                 className="bg-transparent border-2 border-purple-500 hover:bg-purple-500/20 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
               >
                 Contact Us
-              </a>
+              </button>
             </div>
           </div>
         </div>

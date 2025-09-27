@@ -134,8 +134,32 @@ const AwardsAndRecognition: React.FC = () => {
           </p>
         </div>
 
+        {/* Recognition Stats with Animation - Moved Above Cards */}
+        <div ref={statsRef} className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl p-8 border border-gray-600/30 mb-20">
+          <h3 className="text-3xl font-bold text-white text-center mb-12">By the Numbers</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {recognitions.map((recognition, index) => (
+              <div key={index} className="text-center group">
+                <div className={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-purple-600 mb-2 transition-all duration-500 ${isVisible ? 'scale-110' : 'scale-100'}`}>
+                  {index === 0 && `${satisfactionCount}%`}
+                  {index === 1 && `${awardsCount}+`}
+                  {index === 2 && '#1'}
+                  {index === 3 && `${successCount}+`}
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">{recognition.label}</h4>
+                <p className="text-gray-300 text-sm">{recognition.description}</p>
+              </div>
+            ))}
+          </div>
+          {isVisible && (
+            <div className="mt-8 flex justify-center">
+              <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-cyan-400 rounded-full animate-pulse"></div>
+            </div>
+          )}
+        </div>
+
         {/* Responsive Grid for Award Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {awardsData.map((award, index) => (
             <div
               key={index}
@@ -164,30 +188,6 @@ const AwardsAndRecognition: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Recognition Stats with Animation */}
-        <div ref={statsRef} className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl p-8 border border-gray-600/30">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">By the Numbers</h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {recognitions.map((recognition, index) => (
-              <div key={index} className="text-center group">
-                <div className={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-purple-600 mb-2 transition-all duration-500 ${isVisible ? 'scale-110' : 'scale-100'}`}>
-                  {index === 0 && `${satisfactionCount}%`}
-                  {index === 1 && `${awardsCount}+`}
-                  {index === 2 && '#1'}
-                  {index === 3 && `${successCount}+`}
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{recognition.label}</h4>
-                <p className="text-gray-300 text-sm">{recognition.description}</p>
-              </div>
-            ))}
-          </div>
-          {isVisible && (
-            <div className="mt-8 flex justify-center">
-              <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-cyan-400 rounded-full animate-pulse"></div>
-            </div>
-          )}
         </div>
 
       </div>

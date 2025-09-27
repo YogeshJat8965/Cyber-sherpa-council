@@ -1,5 +1,6 @@
 import React from 'react';
 import { Globe, TrendingUp, Award, Target } from 'lucide-react';
+import { openFormInNewTab } from '../utils/formUtils';
 
 const About: React.FC = () => {
   return (
@@ -75,7 +76,7 @@ const About: React.FC = () => {
             Experience the difference that strategic cybersecurity leadership makes. Join a community that's shaping the future of digital security.
           </p>
           <button
-            onClick={() => document.getElementById('application')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => openFormInNewTab()}
             className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/40 text-lg"
           >
             Start Your Application

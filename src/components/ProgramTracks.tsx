@@ -224,8 +224,8 @@ const ProgramTracks: React.FC = () => {
       ></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-aos-easing="ease-out">
+        <div className="text-center mb-16 py-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg leading-normal font-sans" style={{ lineHeight: '1.2' }} data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-aos-easing="ease-out">
             Program Tracks
           </h2>
         </div>
@@ -289,7 +289,7 @@ const ProgramTracks: React.FC = () => {
                         {track.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="key-point flex items-start space-x-4">
                             <div className="key-bullet"></div>
-                            <span className="text-sm font-medium leading-relaxed">
+                            <span className="text-base font-medium leading-relaxed">
                               {feature}
                             </span>
                           </div>
