@@ -6,7 +6,7 @@ const pillarData = [
   {
     number: '01',
     title: 'Our Mission',
-    description: 'To cultivate a global network of Cybersecurity Leaders co-creating the future of secure digital transformation through Intelligence Sharing, Strategic Foresight, and Innovation Leadership.',
+    description: 'To cultivate a global network of Cybersecurity Leaders co-creating the future of secure digital transformation through Intelligence Sharing, and Innovation Leadership.',
     iconSrc: '/images/mission.png',
     color: 'cyan',
   },
@@ -59,16 +59,18 @@ const colorVariants = {
 const StrategicPillars: React.FC = () => {
   return (
     <section id="mission" className="min-h-screen font-sans flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden">
-      {/* High Quality Animated GIF Background */}
+      {/* Video Background */}
       <div className="absolute inset-0">
-        <img 
-          src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDlweWpvZHJ0ZjkxeGMwODNlNXg5ZWU3dHc1YnZ1dHA1ZHJyenl1aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0GqimU9dTwmE5lra/giphy.gif"
-          // alt="Animated Background"
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
           className="w-full h-full object-cover"
-          style={{
-            imageRendering: 'pixelated',
-          }}
-        />
+        >
+          <source src="/0_Abstract_Technology_1080x1080.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       
       {/* Optional overlay for better text readability */}

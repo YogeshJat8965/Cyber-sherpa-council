@@ -3,38 +3,52 @@ import { Shield, Mail, Phone, MapPin, LinkedinIcon, TwitterIcon, FacebookIcon } 
 
 const Footer: React.FC = () => {
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Mission & Vision', href: '#mission' },
-    { name: 'Program Tracks', href: '#tracks' },
-    { name: 'Leadership', href: '#leadership' },
-    { name: 'FAQ', href: '#faq' }
+    { name: 'About Us', href: 'about' },
+    { name: 'Mission & Vision', href: 'mission' },
+    { name: 'Program Tracks', href: 'tracks' },
+    { name: 'Leadership', href: 'leadership' },
+    { name: 'FAQ', href: 'faq' }
   ];
 
   const programs = [
-    { name: 'Foundation Track', href: '#tracks' },
-    { name: 'Executive Track', href: '#tracks' },
-    { name: 'Innovation Track', href: '#tracks' },
-    { name: 'Certification Programs', href: '#tracks' },
-    { name: 'Custom Corporate Programs', href: '#application' }
+    { name: 'Foundation Track', href: 'tracks' },
+    { name: 'Executive Track', href: 'tracks' },
+    { name: 'Innovation Track', href: 'tracks' },
+    { name: 'Certification Programs', href: 'tracks' },
+    { name: 'Custom Corporate Programs', href: 'tracks' }
   ];
 
   const resources = [
-    { name: 'Research Reports', href: '#leadership' },
-    { name: 'Industry Insights', href: '#awards' },
-    { name: 'Best Practices', href: '#pillars' },
-    { name: 'White Papers', href: '#leadership' },
-    { name: 'Webinar Series', href: '#why-join' }
+    { name: 'Research Reports', href: 'news-insights' },
+    { name: 'Industry Insights', href: 'news-insights' },
+    { name: 'Best Practices', href: 'news-insights' },
+    { name: 'White Papers', href: 'news-insights' },
+    { name: 'Webinar Series', href: 'news-insights' }
   ];
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId.replace('#', ''));
+    console.log('Footer: Attempting to scroll to section:', sectionId);
+    
+    const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80;
-      const elementPosition = element.offsetTop - offset;
+      console.log('Footer: Element found, scrolling...');
+      
+      // Get the element's position
+      const elementRect = element.getBoundingClientRect();
+      const elementTop = elementRect.top + window.pageYOffset;
+      const offset = 100; // Account for fixed header
+      
+      // Scroll to the element
       window.scrollTo({
-        top: elementPosition,
+        top: elementTop - offset,
         behavior: 'smooth'
       });
+      
+    } else {
+      console.error('Footer: Element not found with ID:', sectionId);
+      // Show all available IDs for debugging
+      const allIds = Array.from(document.querySelectorAll('[id]')).map(el => el.id);
+      console.log('Footer: Available IDs:', allIds);
     }
   };
 
@@ -100,7 +114,7 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200 text-left"
                   >
                     {link.name}
                   </button>
@@ -117,7 +131,7 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(program.href)}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200 text-left"
                   >
                     {program.name}
                   </button>
@@ -134,7 +148,7 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(resource.href)}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200 text-left"
                   >
                     {resource.name}
                   </button>
@@ -153,7 +167,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a
                 href="#"
                 className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
@@ -175,7 +189,7 @@ const Footer: React.FC = () => {
               >
                 <FacebookIcon className="w-6 h-6" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Additional Links */}

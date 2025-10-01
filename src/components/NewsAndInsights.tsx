@@ -73,6 +73,7 @@ const NewsAndInsights: React.FC = () => {
 
   return (
     <section 
+      id="news-insights"
       className="py-16 md:py-24 font-sans" 
       style={{ backgroundColor: sectionBgColor, color: '#1F2937' }}
     >

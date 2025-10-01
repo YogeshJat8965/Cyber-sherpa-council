@@ -1,4 +1,5 @@
 import React from 'react';
+import { openFormInNewTab } from '../utils/formUtils';
 
 const ExecutiveProfile: React.FC = () => {
   // Update the image URL to use cio.jpg
@@ -46,7 +47,7 @@ const ExecutiveProfile: React.FC = () => {
               
               {/* Button 1: Meet the Advisory Board (Modern Outline with Slide Effect) */}
               <button 
-                onClick={() => console.log('Advisory Board clicked')}
+                onClick={() => openFormInNewTab()}
                 className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full overflow-hidden transition-all duration-500 ease-out transform hover:scale-105 hover:-translate-y-1"
                 style={{
                     border: `2px solid ${primaryBlue}`,
@@ -70,7 +71,7 @@ const ExecutiveProfile: React.FC = () => {
 
               {/* Button 2: Join the Leadership Circle (Modern Solid with Glow Effect) */}
               <button 
-                onClick={() => console.log('Join Leadership clicked')}
+                onClick={() => openFormInNewTab()}
                 className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full text-white overflow-hidden transition-all duration-500 ease-out transform hover:scale-105 hover:-translate-y-1"
                 style={{ 
                     background: `linear-gradient(135deg, ${primaryBlue}, #2563eb)`,
