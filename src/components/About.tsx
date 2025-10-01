@@ -13,10 +13,10 @@ const About: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 mb-6" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 mb-6" data-aos="fade-down" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-out">
             About Cyber Sherpa Council
           </h2>
-          <p className="text-xl text-black max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+          <p className="text-xl text-black max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" data-aos-easing="ease-out">
             The <b>Cyber Sherpa Council</b> is a strategic leadership consortium uniting cybersecurity executives across Industries and Geographies. In an age of unprecedented Disruption and Innovation, we offer a carefully curated suite of programs designed to prepare today's cybersecurity leaders for tomorrow's Autonomous, AI-powered threat landscape.
           </p>
         </div>
@@ -24,7 +24,7 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6">
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl p-8 border border-gray-400/20" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1400" data-aos-easing="ease-out-back">
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl p-8 border border-gray-400/20" data-aos="fade-up" data-aos-delay="200" data-aos-duration="450" data-aos-easing="ease-out">
               <h3 className="text-2xl font-bold text-black mb-4">Our Foundation</h3>
               <p className="text-black mb-4">
                 Founded by industry veterans, the <b> Cyber Sherpa Council </b> brings together the most influential CISOs and Security Leaders from Fortune 500 companies, Government Agencies, and Innovative Startups.
@@ -34,7 +34,7 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl p-8 border border-gray-400/20" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1400" data-aos-easing="ease-out-back">
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl p-8 border border-gray-400/20" data-aos="fade-up" data-aos-delay="300" data-aos-duration="450" data-aos-easing="ease-out">
               <h3 className="text-2xl font-bold text-black mb-4">Our Impact</h3>
               <p className="text-black mb-4">
                 Through collaborative research, peer mentorship, and strategic advisory services, we've helped shape cybersecurity policies at the highest levels of government and industry.
@@ -52,9 +52,9 @@ const About: React.FC = () => {
               alt="Cyber Sherpa Council Leadership" 
               className="w-full max-w-md h-auto"
               data-aos="fade-left"
-              data-aos-delay="1000"
-              data-aos-duration="1200"
-              data-aos-easing="ease-out-back"
+              data-aos-delay="400"
+              data-aos-duration="500"
+              data-aos-easing="ease-out"
               onError={(e) => {
                 // Fallback styling if image fails to load
                 e.currentTarget.style.display = 'none';
@@ -70,7 +70,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Static Call to Action Content */}
-        <div className="text-center mt-16" data-aos="fade-up" data-aos-delay="800">
+        <div className="text-center mt-16" data-aos="fade-up" data-aos-delay="500">
           <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-purple-700 mb-4">Ready to Join the Elite?</h3>
           <p className="text-black mb-6 max-w-2xl mx-auto text-lg">
             Experience the difference that strategic cybersecurity leadership makes. Join a community that's shaping the future of digital security.

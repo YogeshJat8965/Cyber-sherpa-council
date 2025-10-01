@@ -225,7 +225,7 @@ const ProgramTracks: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 py-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg leading-normal font-sans" style={{ lineHeight: '1.2' }} data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-aos-easing="ease-out">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg leading-normal font-sans" style={{ lineHeight: '1.2' }} data-aos="fade-up" data-aos-duration="400" data-aos-offset="50" data-aos-easing="ease-out">
             Program Tracks
           </h2>
         </div>
@@ -251,7 +251,7 @@ const ProgramTracks: React.FC = () => {
                 className="flip-card-container h-72"
                 data-aos="fade-up" 
                 data-aos-duration="400" 
-                data-aos-delay={index * 100}
+                data-aos-delay={index * 80}
                 data-aos-offset="100"
                 data-aos-easing="ease-out"
               >
@@ -308,7 +308,7 @@ const ProgramTracks: React.FC = () => {
         </div>
 
         {/* Certifications Section */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="500" data-aos-offset="80" data-aos-easing="ease-out">
+        <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="450" data-aos-offset="60" data-aos-easing="ease-out">
           <h3 className="text-2xl font-bold text-gray-800 text-center mb-12">CISO Vanguard Certification Pathway</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 justify-items-center px-4">
             {certifications.map((cert, index) => {
@@ -318,8 +318,8 @@ const ProgramTracks: React.FC = () => {
                   key={index} 
                   className="flex flex-col items-center text-center group p-4"
                   data-aos="zoom-in" 
-                  data-aos-duration="350" 
-                  data-aos-delay={index * 100}
+                  data-aos-duration="400" 
+                  data-aos-delay={index * 80}
                   data-aos-offset="50"
                   data-aos-easing="ease-out"
                 >

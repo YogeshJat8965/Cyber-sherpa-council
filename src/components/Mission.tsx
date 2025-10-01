@@ -78,7 +78,7 @@ const StrategicPillars: React.FC = () => {
       
       {/* Content - Sharp and Clear */}
       <div className="relative z-10 w-full max-w-7xl lg:mt-[-3rem] mt-16 sm:mt-20">
-        <header className="text-center mb-12 lg:mb-16" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-aos-easing="ease-out">
+        <header className="text-center mb-12 lg:mb-16" data-aos="fade-up" data-aos-duration="400" data-aos-offset="50" data-aos-easing="ease-out">
           <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-wider mb-4">OUR VISION & MISSION</h1>
           <p className="text-xl lg:text-2xl text-white/90 font-medium tracking-wide">The Values That Drive Us Forward</p>
         </header>
@@ -92,8 +92,8 @@ const StrategicPillars: React.FC = () => {
                   key={pillar.number} 
                   className="relative flex justify-center group cursor-pointer pt-8 pb-8"
                   data-aos="fade-up" 
-                  data-aos-duration="500" 
-                  data-aos-delay={index * 100}
+                  data-aos-duration="400" 
+                  data-aos-delay={index * 80}
                   data-aos-offset="100"
                   data-aos-easing="ease-out"
                 >
