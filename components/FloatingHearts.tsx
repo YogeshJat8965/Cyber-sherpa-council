@@ -13,8 +13,12 @@ interface Heart {
 
 export default function FloatingHearts() {
   const [hearts, setHearts] = useState<Heart[]>([]);
+  const [screenHeight, setScreenHeight] = useState(800); // Default fallback
 
   useEffect(() => {
+    // Set screen height on client side
+    setScreenHeight(window.innerHeight);
+    
     const newHearts = Array.from({ length: 15 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
@@ -37,7 +41,7 @@ export default function FloatingHearts() {
             bottom: '-50px',
           }}
           animate={{
-            y: [0, -window.innerHeight - 100],
+            y: [0, -(screenHeight + 100)],
             x: [0, Math.sin(heart.id) * 50],
             rotate: [0, 360],
           }}

@@ -12,8 +12,12 @@ interface Petal {
 
 export default function FlowerPetals() {
   const [petals, setPetals] = useState<Petal[]>([]);
+  const [screenHeight, setScreenHeight] = useState(800); // Default fallback
 
   useEffect(() => {
+    // Set screen height on client side
+    setScreenHeight(window.innerHeight);
+    
     const newPetals = Array.from({ length: 20 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
@@ -34,7 +38,7 @@ export default function FlowerPetals() {
             top: '-20px',
           }}
           animate={{
-            y: [0, window.innerHeight + 50],
+            y: [0, screenHeight + 50],
             x: [0, Math.sin(petal.id * 2) * 100],
             rotate: [0, 360],
             scale: [1, 0.5, 1],
